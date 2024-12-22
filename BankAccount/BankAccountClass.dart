@@ -1,21 +1,36 @@
 void main() {
-  //creating instance of the bank account
-  BankAccount user = BankAccount(3);
-  user.displayInfo();
-  user.deposit(5024.25);
-  user.withdraw(1024.25);
-  user.withdraw(5000);
-  user.withdraw(-5548);
-  user.displayInfo();
+  //requirement 2 
+  //creating instance of the bank account with first constructor
+  BankAccount user1 = BankAccount(3,4000);
+  
+  print("#########################");
+  user1.displayInfo();
+  user1.deposit(5024.25);
+  user1.withdraw(1024.25);
+  user1.withdraw(50000);
+  user1.withdraw(-5548);
+  print("#########################");
+  user1.displayInfo();
+  print("#########################");
+   //creating instance of the bank account with named constructor
+  BankAccount user2 = BankAccount.withBalance(4);
+  user2.displayInfo();
+  user2.deposit(5024.25);
+  user2.withdraw(1024.25);
+  user2.withdraw(5000);
+  user2.withdraw(-5548);
+  print("#########################");
+  user2.displayInfo();
+  
 }
-
+//requirement 1
 class BankAccount{
   int accountID;
   double balance;
   //default constructor that takes accountID
-  BankAccount(this.accountID) : balance=0;
+  BankAccount(this.accountID,this.balance);
   //name constructor for balance
-  BankAccount.withName(this.balance):accountID =0;
+  BankAccount.withBalance(this.accountID):balance =0;
     
   //withdraw methood and ensure the amount is positive and balance is sufficient
   void withdraw(double amount) {
